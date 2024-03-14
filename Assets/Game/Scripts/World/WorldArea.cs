@@ -15,7 +15,10 @@ namespace TestPong.World
 
         public Rect GetAreaRect()
         {
-            return new Rect(Vector2.zero, _size);
+            var rect = new Rect(Vector2.zero, _size);
+            rect.center = Vector2.zero;
+
+            return rect;
         }
 
 #if UNITY_EDITOR
@@ -26,7 +29,7 @@ namespace TestPong.World
                 return;
             }
 
-            Gizmos.DrawWireCube(AreaRect.position, AreaRect.size);
+            Gizmos.DrawWireCube(AreaRect.center, AreaRect.size);
         }
 #endif
     }
